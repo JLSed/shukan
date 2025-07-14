@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&family=Outfit:wght@100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #274c77;
+  --color-light: #f0e2e7;
+  --color-dark: #22223b;
+  --color-alert: #ee204e;
+  --color-warning: #ffd166;
+  --color-disabled: #e2d6da;
+
+  --font-lusitana: "Lusitana";
+  --font-outfit: "Outfit";
+
+  --text-lg: 2.25rem;
+  --text-md: 1.25rem;
+  --text-sm: 0.875rem;
+  --text-sx: 0.625rem;
+
+  --shadow-solid: 2px 2px 0;
+  --shadow-center: 0 0 8px;
+
+  --spacing-sm: 0.1875rem;
+  --spacing-md: 0.6875rem;
+  --spacing-lg: 1.4375rem;
+
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+}
+
+@layer base {
+  body {
+    @apply bg-light;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-lusitana;
+  }
+  p {
+    @apply font-outfit;
+  }
+}
+
+@layer components {
+  .border-style-1 {
+    @apply rounded-sm border-2 border-primary shadow-solid shadow-primary;
+  }
+  .header-1 {
+    @apply font-lusitana text-lg text-primary;
+  }
+  .subheader-1 {
+    @apply font-outfit text-md text-primary;
+  }
+  .paragraph-1 {
+    @apply font-outfit text-sm text-primary/70;
+  }
+  .card-active-1 {
+    @apply shadow-center shadow-primary/20 rounded-md;
+  }
+}
