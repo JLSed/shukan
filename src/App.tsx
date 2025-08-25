@@ -9,11 +9,3 @@ function App() {
 }
 
 export default App;
-
-//comment lang try sa pull
-
-//second comment try lang
-
-//third comment try role
-
-//4th comment merge try
