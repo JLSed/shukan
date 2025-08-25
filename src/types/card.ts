@@ -3,3 +3,10 @@ export interface checklist {
   title: string;
   isChecked: boolean;
 }
+
+export interface QuestListType {
+  id?: number;
+  title: string;
+  description?: string;
+  checklist: checklist[];
+}

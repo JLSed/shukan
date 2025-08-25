@@ -1,12 +1,13 @@
 import { MdAdd, MdFormatListBulletedAdd, MdSort } from "react-icons/md";
 import QuestCard from "./QuestCard";
-import type { checklist } from "../types/card";
+import type { checklist, QuestListType } from "../types/card";
 
 type Props = {
   questHeader: string;
+  questList: QuestListType[];
 };
 
-const QuestList = ({ questHeader }: Props) => {
+const QuestBoard = ({ questHeader, questList }: Props) => {
   const sampleChecklists: checklist[] = [
     { id: 1, title: "Walk the dog", isChecked: false },
     { id: 2, title: "Write code", isChecked: true },
@@ -25,14 +26,16 @@ const QuestList = ({ questHeader }: Props) => {
           <input placeholder="Add new task" className="outline-0" />
         </div>
       </div>
-      <QuestCard
-        cardHeader="Take a short Break."
-        cardDesc="Watch TV, play a game, eat a treat, it's up to you! it's up to you!"
-        checkLists={sampleChecklists}
-      />
-      <QuestCard cardHeader="Second Quest" />
+      {
+        questList.map((quest) => (
+          <QuestCard
+            cardHeader={quest.title}
+            cardDesc={quest.description}
+            checkLists={quest.checklist}
+          />
+        ))}
     </div>
   );
 };
 
-export default QuestList;
+export default QuestBoard;
