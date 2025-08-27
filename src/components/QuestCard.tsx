@@ -1,4 +1,4 @@
-import { MdAdd } from "react-icons/md";
+import { MdCheck } from "react-icons/md";
 import type { checklist } from "../types/card";
 import { useState } from "react";
 
@@ -9,33 +9,33 @@ type Props = {
 };
 
 const QuestCard = ({ cardHeader, cardDesc, checkLists = [] }: Props) => {
-  const [task, setTask] = useState<checklist[]>(checkLists);
+  const [checklist, setChecklist] = useState<checklist[]>(checkLists);
   const toggleCheck = (id: number) => {
-    setTask((prev) =>
+    setChecklist((prev) =>
       prev.map((item) =>
         item.id === id ? { ...item, isChecked: !item.isChecked } : item,
       ),
     );
   };
   return (
-    <div className="card-active-1 p-md flex-col gap-md">
+    <div className="card-active p-md flex-col gap-md">
       <div
-        className={`flex gap-md border-primary  ${task.length > 0 ? "border-b-2 pb-md" : ""}`}
+        className={`flex gap-md border-primary  ${checklist.length > 0 ? "border-b-2 pb-md" : ""}`}
       >
         <button
-          disabled={task.length > 0}
+          disabled={checklist.length > 0}
           className="bg-primary p-sm rounded-sm disabled:opacity-30"
         >
-          <MdAdd className="text-md text-light" />
+          <MdCheck className="text-md text-light" />
         </button>
         <div>
-          <h1 className="subheader-1">{cardHeader}</h1>
+          <h1 className="subheader">{cardHeader}</h1>
           <p className="paragraph-1">{cardDesc}</p>
         </div>
       </div>
-      {task.length > 0 && (
+      {checklist.length > 0 && (
         <ul className="mt-md">
-          {task.map((item) => (
+          {checklist.map((item) => (
             <li
               key={item.id}
               className="flex items-center gap-md py-sm text-primary"
