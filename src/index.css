@@ -32,6 +32,15 @@
   body {
     @apply bg-light;
   }
+
+  form input {
+    @apply font-outfit text-primary bg-primary/10 p-md py-sm rounded-sm focus:ring-primary focus:ring-2 focus:outline-none
+  }
+
+  form textarea {
+    @apply font-outfit text-primary bg-primary/10 p-md py-sm rounded-sm min-h-8 focus:ring-primary focus:ring-2 focus:outline-none
+  }
+
   h1,
   h2,
   h3,
@@ -40,8 +49,13 @@
   h6 {
     @apply font-lusitana;
   }
+
   p {
     @apply font-outfit;
+  }
+
+  button {
+    @apply bg-primary text-light font-lusitana text-md px-md py-sm rounded-sm hover:cursor-pointer hover:scale-105
   }
 }
 
@@ -49,16 +63,24 @@
   .border-style-1 {
     @apply rounded-sm border-2 border-primary shadow-solid shadow-primary;
   }
-  .header-1 {
+
+  .header {
     @apply font-lusitana text-lg text-primary;
   }
-  .subheader-1 {
+
+  .subheader {
     @apply font-outfit text-md text-primary;
   }
+
   .paragraph-1 {
     @apply font-outfit text-sm text-primary/70;
   }
-  .card-active-1 {
+
+  .card-active {
     @apply shadow-center shadow-primary/20 rounded-md;
+  }
+
+  .center {
+    @apply justify-center items-center;
   }
 }
