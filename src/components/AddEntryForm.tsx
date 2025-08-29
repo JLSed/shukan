@@ -12,7 +12,7 @@ const defaultNewTask: QuestListType = {
   description: "",
   checklist: [],
 }
-const QuestForm = () => {
+const AddEntryForm = () => {
   const [newTask, setNewTask] = useState<QuestListType>(defaultNewTask)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -32,13 +32,13 @@ const QuestForm = () => {
     setNewTask(defaultNewTask)
   }
   return (
-    <form onSubmit={handleSubmit} className="border-style-1 flex flex-col items-center gap-md p-md">
+    <form onSubmit={handleSubmit} className="border-style-1 flex flex-col items-center gap-md p-md ">
       <h1 className="header">Add Entry</h1>
-      <input name="title" type="text" placeholder="Title" onChange={handleChange} />
+      <input className="w-full" required name="title" type="text" placeholder="Title" onChange={handleChange} />
       <textarea name="description" className="w-full max-h-64" placeholder="Description" onChange={handleChange}></textarea>
       <button type="submit">Submit</button>
     </form>
   )
 }
 
-export default QuestForm
+export default AddEntryForm

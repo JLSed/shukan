@@ -18,15 +18,15 @@ const QuestCard = ({ cardHeader, cardDesc, checkLists = [] }: Props) => {
     );
   };
   return (
-    <div className="card-active p-md flex-col gap-md">
+    <div className="card-active p-md  ">
       <div
-        className={`flex gap-md border-primary  ${checklist.length > 0 ? "border-b-2 pb-md" : ""}`}
+        className={`flex items-center gap-md border-primary/20  ${checklist.length > 0 ? "border-b-2 pb-md" : ""}`}
       >
         <button
           disabled={checklist.length > 0}
-          className="bg-primary p-sm rounded-sm disabled:opacity-30"
+          className="bg-transparent border-primary border-2 p-sm rounded-sm disabled:opacity-30 max-h-8 text-transparent hover:text-white hover:bg-primary"
         >
-          <MdCheck className="text-md text-light" />
+          <MdCheck className="text-md " />
         </button>
         <div>
           <h1 className="subheader">{cardHeader}</h1>
