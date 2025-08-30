@@ -18,7 +18,7 @@ const QuestCard = ({ cardHeader, cardDesc, checkLists = [] }: Props) => {
     );
   };
   return (
-    <div className="card-active p-md  ">
+    <div className="card-active p-md">
       <div
         className={`flex items-center gap-md border-primary/20  ${checklist.length > 0 ? "border-b-2 pb-md" : ""}`}
       >
