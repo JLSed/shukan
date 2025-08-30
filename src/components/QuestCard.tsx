@@ -24,7 +24,7 @@ const QuestCard = ({ cardHeader, cardDesc, checkLists = [] }: Props) => {
       >
         <button
           disabled={checklist.length > 0}
-          className="bg-transparent border-primary border-2 p-sm rounded-sm disabled:opacity-30 max-h-8 text-transparent hover:text-white hover:bg-primary"
+          className="bg-transparent border-primary border-2 p-sm rounded-md disabled:opacity-30 max-h-8 text-transparent hover:text-light hover:bg-primary"
         >
           <MdCheck className="text-md " />
         </button>
@@ -44,7 +44,7 @@ const QuestCard = ({ cardHeader, cardDesc, checkLists = [] }: Props) => {
                 type="checkbox"
                 checked={item.isChecked}
                 onChange={() => toggleCheck(item.id)}
-                className="w-[26px] h-[26px] accent-primary text-white transition-all duration-200 rounded focus:outline-none"
+                className="w-[26px] h-[26px] accent-primary text-light transition-all duration-200 rounded focus:outline-none"
               />
               {item.title}
             </li>

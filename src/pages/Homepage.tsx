@@ -28,7 +28,7 @@ const Homepage = () => {
 
 
   return (
-    <div className="grid grid-cols-2 grid-rows-2 justify-center gap-4 p-lg">
+    <div className="grid grid-cols-2 grid-rows-[auto_1fr] justify-center gap-4 p-lg">
       <StatView />
       <AddEntryForm />
       <QuestBoard questHeader="Daily Quest" questList={tasks} isLoading={isLoading} />
