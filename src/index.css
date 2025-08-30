@@ -78,6 +78,7 @@
 
   .card-active {
     @apply shadow-center shadow-primary/20 rounded-sm border-primary/20 border-2;
+
   }
 
   .center {
