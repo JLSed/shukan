@@ -15,6 +15,7 @@ const Homepage = () => {
     const { error, data } = await supabase.from("tasks").select("*").order("created_at", { ascending: true })
     if (error) {
       alert(error.message)
+      setIsLoading(false)
       return
     }
     console.log(data)

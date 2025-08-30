@@ -19,15 +19,20 @@ const QuestBoard = ({ questHeader, questList, isLoading }: questListProps) => {
       </div>
       <div>
       </div>
-      {isLoading ?
+      {isLoading ? (
         <div className="flex flex-col gap-sm">
           {[...Array(3)].map((_, i) => (
-            <div key={i} className="card-active h-15 bg-primary rounded-md animate-pulse">
-
-
+            <div key={i} className="flex items-center gap-md card-active p-md">
+              <div className="w-7 h-7 bg-primary rounded-md animate-pulse"></div>
+              <h1 className="subheader animate-pulse">Fetching data...</h1>
             </div>
           ))}
-        </div> :
+        </div>
+      ) : questList.length === 0 ? (
+        <div className="flex center h-full">
+          <h1 className="header text-primary/50">No Data Found.</h1>
+        </div>
+      ) : (
         <div className="flex flex-col gap-sm">
           {
             questList.map((quest) => (
@@ -38,7 +43,8 @@ const QuestBoard = ({ questHeader, questList, isLoading }: questListProps) => {
                 checkLists={quest.checklist}
               />
             ))}
-        </div>}
+        </div>
+      )}
     </div>
   );
 };
