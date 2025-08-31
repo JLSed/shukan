@@ -22,7 +22,7 @@ export const useTaskContext = () => {
 }
 
 
-const TaskProvider = ({ children }: { children: React.ReactNode }) => {
+export const TaskProvider = ({ children }: { children: React.ReactNode }) => {
   const [tasks, setTasks] = useState<QuestListType[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
@@ -58,4 +58,3 @@ const TaskProvider = ({ children }: { children: React.ReactNode }) => {
   )
 }
 
-export default TaskProvider

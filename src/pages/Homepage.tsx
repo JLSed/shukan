@@ -1,7 +1,7 @@
 import QuestBoard from "../components/QuestBoard";
 import AddEntryForm from "../components/AddEntryForm";
 import StatView from "../components/StatView";
-import TaskProvider from "../providers/TaskProvider";
+import { TaskProvider } from "../providers/TaskProvider";
 
 
 const Homepage = () => {
