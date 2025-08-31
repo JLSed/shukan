@@ -4,11 +4,10 @@ import { supabase } from "../supabase";
 
 interface TaskContextType {
   tasks: QuestListType[];
-  setTasks: (tasks: QuestListType[]) => void;
   isLoading: boolean;
   setIsLoading: (isLoading: boolean) => void;
   fetchTasks: () => Promise<void>;
-
+  addNewTask: (newTask: QuestListType) => void;
 }
 
 const TaskContext = createContext<TaskContextType | undefined>(undefined)
@@ -39,16 +38,25 @@ export const TaskProvider = ({ children }: { children: React.ReactNode }) => {
     setIsLoading(false)
   }
 
+  const addNewTask = async (newTask: QuestListType) => {
+    const { error } = await supabase.from("tasks").insert(newTask).single()
+    if (error) {
+      alert(error.message)
+      return
+    }
+    setTasks((prev) => ([...prev, newTask]))
+  }
+
   useEffect(() => {
     fetchTasks()
   }, [])
 
   const value = {
     tasks,
-    setTasks,
     isLoading,
     setIsLoading,
-    fetchTasks
+    fetchTasks,
+    addNewTask
   }
 
   return (
