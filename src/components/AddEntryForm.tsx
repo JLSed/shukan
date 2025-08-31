@@ -1,6 +1,6 @@
 import { useState } from "react"
 import type { QuestListType } from "../types/card"
-import { supabase } from "../supabase"
+import { useTaskContext } from "../providers/TaskProvider"
 
 
 //TODO: notification sa submit status
@@ -13,8 +13,8 @@ const defaultNewTask: QuestListType = {
   checklist: [],
 }
 const AddEntryForm = () => {
+  const { addNewTask } = useTaskContext();
   const [newTask, setNewTask] = useState<QuestListType>(defaultNewTask)
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setNewTask((prev) => ({
       ...prev,
@@ -24,11 +24,7 @@ const AddEntryForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const { error } = await supabase.from("tasks").insert(newTask).single()
-    if (error) {
-      alert(error.message)
-      return
-    }
+    addNewTask(newTask)
     setNewTask(defaultNewTask)
   }
   return (
