@@ -1,14 +1,15 @@
 import { MdAdd, MdSort } from "react-icons/md";
 import QuestCard from "./QuestCard";
-import type { QuestListType } from "../types/card";
+import { useTaskContext } from "../providers/TaskProvider";
 
-type questListProps = {
+type QuestBoardProps = {
   questHeader: string;
-  questList: QuestListType[];
-  isLoading: boolean;
 };
 
-const QuestBoard = ({ questHeader, questList, isLoading }: questListProps) => {
+const QuestBoard = ({ questHeader }: QuestBoardProps) => {
+  const { tasks, isLoading } = useTaskContext();
+
+
 
   return (
     <div className="border-style-1 flex flex-col gap-sm p-md ">
@@ -28,14 +29,14 @@ const QuestBoard = ({ questHeader, questList, isLoading }: questListProps) => {
             </div>
           ))}
         </div>
-      ) : questList.length === 0 ? (
+      ) : tasks.length === 0 ? (
         <div className="flex center h-full">
           <h1 className="header text-primary/50">No Data Found.</h1>
         </div>
       ) : (
         <div className="flex flex-col gap-sm">
           {
-            questList.map((quest) => (
+            tasks.map((quest) => (
               <QuestCard
                 key={quest.id}
                 cardHeader={quest.title}
