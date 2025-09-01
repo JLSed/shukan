@@ -38,7 +38,8 @@ export const TaskProvider = ({ children }: { children: React.ReactNode }) => {
     setIsLoading(false)
   }
 
-  const addNewTask = async (newTask: QuestListType) => {
+  const addNewTask = async (newTaskParam: QuestListType) => {
+    const newTask: QuestListType = { ...newTaskParam, id: crypto.randomUUID() }
     const { error } = await supabase.from("tasks").insert(newTask).single()
     if (error) {
       alert(error.message)

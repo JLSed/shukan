@@ -30,8 +30,8 @@ const AddEntryForm = () => {
   return (
     <form onSubmit={handleSubmit} className="border-style-1 flex flex-col items-center gap-md p-md ">
       <h1 className="header">Add Entry</h1>
-      <input className="w-full" required name="title" type="text" placeholder="Title" onChange={handleChange} />
-      <textarea name="description" className="w-full max-h-64" placeholder="Description" onChange={handleChange}></textarea>
+      <input className="w-full" required name="title" type="text" value={newTask.title} placeholder="Title" onChange={handleChange} />
+      <textarea name="description" className="w-full max-h-64" value={newTask.description} placeholder="Description" onChange={handleChange}></textarea>
       <button type="submit">Submit</button>
     </form>
   )
