@@ -1,0 +1,23 @@
+
+
+
+
+
+
+
+
+
+
+
+
+      <div className="flex flex-col items-start">
+        <input type="text" id="username" placeholder="John Doe" className="peer px-4 py-2 w-96 
+            border border-slate-600 placeholder-transparent" />
+        <label for="username" className="ml-4 -mt-11 text-xs text-blue-600  
+            peer-placeholder-shown:text-gray-400 
+            peer-placeholder-shown:-mt-8
+            peer-placeholder-shown:text-base 
+            duration-300">
+          username
+        </label>
+      </div>

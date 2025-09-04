@@ -1,14 +1,16 @@
 import { MdCheck } from "react-icons/md";
 import type { checklist } from "../types/card";
 import { useState } from "react";
+import { BiCoin } from "react-icons/bi";
 
 type Props = {
   cardHeader: string;
   cardDesc?: string;
   checkLists?: checklist[];
+  rewardAmount: number;
 };
 
-const QuestCard = ({ cardHeader, cardDesc, checkLists = [] }: Props) => {
+const QuestCard = ({ cardHeader, cardDesc, checkLists = [], rewardAmount }: Props) => {
   const [checklist, setChecklist] = useState<checklist[]>(checkLists);
   const toggleCheck = (id: number) => {
     setChecklist((prev) =>
@@ -28,9 +30,15 @@ const QuestCard = ({ cardHeader, cardDesc, checkLists = [] }: Props) => {
         >
           <MdCheck className="text-md " />
         </button>
-        <div>
+        <div className="flex-1">
           <h1 className="subheader">{cardHeader}</h1>
           <p className="paragraph-1">{cardDesc}</p>
+        </div>
+        <div className=" flex items-center gap-sm bg-primary rounded-sm subheader text-light p-md select-none">
+          <p className="text-2xl">
+            +{rewardAmount}
+          </p>
+          <BiCoin />
         </div>
       </div>
       {checklist.length > 0 && (
