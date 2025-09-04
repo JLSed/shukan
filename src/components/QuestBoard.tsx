@@ -42,6 +42,7 @@ const QuestBoard = ({ questHeader }: QuestBoardProps) => {
                 cardHeader={quest.title}
                 cardDesc={quest.description}
                 checkLists={quest.checklist}
+                rewardAmount={quest.rewardAmount}
               />
             ))}
         </div>

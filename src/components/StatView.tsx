@@ -3,7 +3,7 @@ import PassCoinView from "./PassCoinView"
 const StatView = () => {
   return (
     <div className="col-span-2 ">
-      <PassCoinView passCoins={3} />
+      <PassCoinView passCoins={33} />
     </div>
   )
 }
