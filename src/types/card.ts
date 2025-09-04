@@ -5,7 +5,7 @@ export interface checklist {
 }
 
 export interface QuestListType {
-  id?: number;
+  id?: string;
   title: string;
   rewardAmount: number;
   description?: string;
