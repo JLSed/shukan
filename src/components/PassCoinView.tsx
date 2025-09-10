@@ -11,7 +11,7 @@ const PassCoinView = ({ passCoins }: passCoinViewProps) => {
       <h1 className="paragraph-1 self-start text-light">Pass Coin</h1>
       <div className="flex items-center gap-sm text-light">
         <BiCoin className="text-3xl" />
-        <p className="header text-5xl text-light">{passCoins}</p>
+        <p className="header text-4xl text-light">{passCoins}</p>
       </div>
     </div>
   )

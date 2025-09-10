@@ -12,7 +12,6 @@ const Homepage = () => {
     <div className="grid grid-cols-2 grid-rows-[auto_1fr] justify-center gap-4 p-lg">
       <TaskProvider>
         <StatView />
-        <AddEntryForm />
         <QuestBoard questHeader="Daily Quest" />
       </TaskProvider>
     </div>
