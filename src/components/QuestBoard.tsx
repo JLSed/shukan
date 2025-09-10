@@ -1,6 +1,11 @@
 import { MdAdd, MdSort } from "react-icons/md";
 import QuestCard from "./QuestCard";
 import { useTaskContext } from "../providers/TaskProvider";
+import { useState } from "react";
+import AddEntryForm from "./AddEntryForm";
+import { useGSAP } from "@gsap/react";
+
+import gsap from "gsap";
 
 type QuestBoardProps = {
   questHeader: string;
@@ -8,17 +13,30 @@ type QuestBoardProps = {
 
 const QuestBoard = ({ questHeader }: QuestBoardProps) => {
   const { tasks, isLoading } = useTaskContext();
+  const [isAddEntryOpen, setIsAddEntryOpen] = useState<boolean>(false);
 
+  useGSAP(() => {
+    const heightValue = isAddEntryOpen ? "230px" : "0px";
+    const scaleValue = isAddEntryOpen ? "1" : "0";
+    const rotateValue = isAddEntryOpen ? 45 : 0;
+
+
+    gsap.to("#AddEntry", { height: heightValue, scaleY: scaleValue, duration: 0.4, ease: "expo.inOut" })
+    gsap.to("#ButtonIcon", { rotate: rotateValue, ease: "elastic.inOut" })
+
+
+  }, [isAddEntryOpen])
 
 
   return (
     <div className="border-style-1 flex flex-col gap-sm p-md ">
       <div className="flex header justify-between items-center">
-        <MdAdd />
+        <MdAdd onClick={() => setIsAddEntryOpen(!isAddEntryOpen)} id="ButtonIcon" className=" text-5xl" />
         <h1>{questHeader}</h1>
         <MdSort />
       </div>
-      <div>
+      <div id="AddEntry" className="h-fit overflow-y-scroll">
+        <AddEntryForm />
       </div>
       {isLoading ? (
         <div className="flex flex-col gap-sm">
